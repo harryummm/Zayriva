@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Zayriva - Women's Fashion</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #fff5f8, #ffe6f0);
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .logo h1 {
+      font-size: 28px;
+      color: #ff3366;
+      margin: 0;
+    }
+
+    .logo p {
+      margin: 0;
+      font-size: 14px;
+      color: #555;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+      padding: 0;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #ff3366;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 100px 20px;
+      background: #fff0f5;
+      animation: fadeIn 1.5s ease;
+    }
+
+    .hero h2 {
+      font-size: 42px;
+      font-weight: bold;
+      color: #ff3366;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 3px solid #ff3366;
+      width: 0;
+      animation: typing 3s steps(30, end) forwards, blink 0.75s step-end infinite;
+    }
+
+    .hero p {
+      margin-top: 20px;
+      font-size: 20px;
+      color: #444;
+    }
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    button {
+      background-color: #ff3366;
+      color: white;
+      border: none;
+      padding: 12px 28px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 6px;
+      margin-top: 25px;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      transform: scale(1.08);
+      background-color: #e02a55;
+      box-shadow: 0 5px 15px rgba(255, 51, 102, 0.3);
+    }
+
+    .swiper-button-next, .swiper-button-prev {
+      color: #ff3366;
+      background-color: white;
+      border: 1px solid #ff3366;
+      border-radius: 50%;
+      padding: 10px;
+    }
+
+    .swiper-button-next:hover, .swiper-button-prev:hover {
+      background-color: #ff3366;
+      color: white;
+    }
+
+    .swiper-slide.product {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+      padding: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    .swiper-slide.product:hover {
+      transform: translateY(-8px);
+    }
+
+    .social-logos {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin: 20px 0;
+    }
+
+    .social-logos img {
+      width: 40px;
+      height: 40px;
+      transition: transform 0.3s ease;
+    }
+
+    .social-logos img:hover {
+      transform: scale(1.2);
+    }
+
+    .faq {
+      background: #fff;
+      padding: 40px 20px;
+    }
+
+    .faq h2 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .faq-item {
+      margin: 10px auto;
+      max-width: 700px;
+    }
+
+    .faq-question {
+      width: 100%;
+      background: #ffe6ee;
+      color: #ff3366;
+      font-weight: bold;
+      padding: 15px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      text-align: left;
+      transition: background 0.3s ease;
+    }
+
+    .faq-question:hover {
+      background: #ffccd9;
+    }
+
+    .faq-answer {
+      display: none;
+      padding: 10px 20px;
+      background: #fff0f5;
+      border-left: 3px solid #ff3366;
+      border-radius: 0 0 6px 6px;
+    }
+
+    footer {
+      background-color: #fff;
+      padding: 20px;
+      text-align: center;
+      color: #777;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">
+      <h1>Zayriva</h1>
+      <p>Your Fashion, Your Style</p>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" data-aos="fade-up">
+    <h2>Explore the Latest Fashion</h2>
+    <p>Elegant. Modest. Trendy.</p>
+    <button onclick="window.location.href='#products'">Shop Now</button>
+  </section>
+
+  <!-- Products -->
+  <section id="products" class="products" data-aos="fade-up">
+    <h2 style="text-align: center;">Our Collection</h2>
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <!-- YT Shorts -->
+        <div class="swiper-slide product"><h3>Spring Bangles Drop</h3><iframe width="100%" height="315" src="https://www.youtube.com/embed/tqvikSlc7ik" frameborder="0" allowfullscreen></iframe><button onclick="window.location.href='https://www.youtube.com/watch?v=tqvikSlc7ik'">Watch Now</button></div>
+        <div class="swiper-slide product"><h3>Royal Necklace Look</h3><iframe width="100%" height="315" src="https://www.youtube.com/embed/MchI4HpArtk" frameborder="0" allowfullscreen></iframe><button onclick="window.location.href='https://www.youtube.com/watch?v=MchI4HpArtk'">Watch Now</button></div>
+        <div class="swiper-slide product"><h3>Bridal Hair in Seconds</h3><iframe width="100%" height="315" src="https://www.youtube.com/embed/4wmRvv1RREI" frameborder="0" allowfullscreen></iframe><button onclick="window.location.href='https://www.youtube.com/watch?v=4wmRvv1RREI'">Watch Now</button></div>
+        <div class="swiper-slide product"><h3>Which Look Do You Love?</h3><iframe width="100%" height="315" src="https://www.youtube.com/embed/IV7XFIEJ010" frameborder="0" allowfullscreen></iframe><button onclick="window.location.href='https://www.youtube.com/watch?v=IV7XFIEJ010'">Watch Now</button></div>
+        <div class="swiper-slide product"><h3>Stunning Necklace Collection</h3><iframe width="100%" height="315" src="https://www.youtube.com/embed/MydFTDIJPDA" frameborder="0" allowfullscreen></iframe><button onclick="window.location.href='https://www.youtube.com/watch?v=MydFTDIJPDA'">Watch Now</button></div>
+      </div>
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+  </section>
+
+  <!-- Social Media -->
+  <section class="social" data-aos="fade-up">
+    <h2 style="text-align: center;">Follow Us</h2>
+    <div class="social-logos">
+      <a href="https://www.instagram.com/zayr.iva" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg" alt="Instagram">
+      </a>
+      <a href="https://www.youtube.com/channel/UCz5KWoracPNjNR6UpJUQpFA" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube">
+      </a>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq" class="faq" data-aos="fade-up">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <button class="faq-question">What is Zayriva's return policy?</button>
+      <div class="faq-answer"><p>We offer a 14-day return policy for unworn items with original tags. Please contact our support for assistance.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">Do you ship internationally?</button>
+      <div class="faq-answer"><p>Yes, we ship worldwide. Shipping fees and delivery times vary by location.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">How can I track my order?</button>
+      <div class="faq-answer"><p>Once your order is shipped, you'll receive a tracking number via email to monitor your shipment.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">Are your products handmade?</button>
+      <div class="faq-answer"><p>Many of our pieces are handcrafted by skilled artisans, ensuring unique and high-quality products.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">How can I contact customer service?</button>
+      <div class="faq-answer"><p>You can reach us at <a href="mailto:zayriva786@gmail.com">zayriva786@gmail.com</a> or through our contact form.</p></div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="contact" data-aos="fade-up" style="text-align: center; padding: 40px 20px;">
+    <h2>Contact Us</h2>
+    <p>Email: <a href="mailto:zayriva786@gmail.com">zayriva786@gmail.com</a></p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Zayriva. All Rights Reserved.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+  <script>
+    AOS.init();
+    const swiper = new Swiper('.swiper', {
+      slidesPerView: 1,
+      spaceBetween: 20,
+      pagination: { el: '.swiper-pagination', clickable: true },
+      navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+      breakpoints: {
+        640: { slidesPerView: 2 },
+        1024: { slidesPerView: 3 }
+      }
+    });
+
+    // FAQ Accordion
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const answer = btn.nextElementSibling;
+        answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+      });
+    });
+  </script>
+</body>
+</html>
+<form action="mailto:zayriva786@gmail.com" method="POST" enctype="text/plain">
+  <input type="text" name="name" placeholder="Your Name" required />
+  <input type="email" name="email" placeholder="Your Email" required />
+  <textarea name="message" placeholder="Your Message" required></textarea>
+  <button type="submit">Send Message</button>
+</form>
+<script>
+ 
+
